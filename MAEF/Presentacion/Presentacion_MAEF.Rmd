@@ -1,12 +1,16 @@
 ---
-title: "R"
-author: "Juan Sebastián Arias"
+title: "Una breve introducción a R"
+author: "Juan Sebastián Arias Hernández <br> Adriana María Santa Alvarado"
 output:
-  ioslides_presentation: default
-  beamer_presentation: default
+  ioslides_presentation:
+    logo: ~/Documents/Laboratorio_Financiero/github/cursos/Cursos/MAEF/Presentacion/Rlogo.png
+    css: ~/Documents/Laboratorio_Financiero/github/cursos/Cursos/MAEF/Presentacion/estilo.css
   slidy_presentation: default
+institute: Universidad Tecnológica de Pereira
 bibliography: presentacion.bib
 ---
+
+# ¿Qué es?
 
 ## R
 <p align="justify">
@@ -20,16 +24,15 @@ En el año  1995 es licenciado bajo GNU (*General Public License*) [@RDataSience
 <p align="justify">
 *R* busca como filosofía, [@RDataSience], crear un entorno que permita realizar rutinas estadísticas complejas de manera sencilla mediante líneas de comando. Y ofrecer un lenguaje para realizar programas en caso que las necesidades lo requieran.
 </p>
+
 ## ¿Por qué utilizar R?
 <p align="justify">
 *R*  es libre mercantil y filosóficamente hablando. Ello implica que no hay que pagar por instalarlo, actualizarlo o compartilo. Además de lo anterior, algunos beneficios que valen la pena resaltar son:
 </p>
 
-
 - <p align="justify"> Tiene gran acogida en la comunidad científica y académica, por lo tanto, hay un gran número de personas dedicando su tiempo, esfuerzo y trabajo desarrollando en él.</p>
 - <p align="justify"> Aprender un software requiere esfuerzo y tiempo, por lo que conocer una herramienta que pueda ser utilizada en ambientes académicos, investigativos y empresariales.</p>
-- Una comunidad grande y sólida que brinda soporte y nuevos paquetes. 
-- Se solicita de manera interactiva información relevante. 
+- Es uno de los lenguajes más utilizados [TIOBE](https://www.tiobe.com/tiobe-index/). 
 
 ## Desventajas
 - <p align="justify"> No tiene soporte técnico ni garantía. Esto se resuelve debido a que la comunidad es activa y está en crecimiento</p>
@@ -38,7 +41,15 @@ En el año  1995 es licenciado bajo GNU (*General Public License*) [@RDataSience
 - <p align="justify">No hay garantía que las rutinas estadísticas que vienen con los paquetes sean correctas. De allí que se debe tener muy claro lo que se está haciendo para identificar inconsistencias. </p>
 - <p align="justify"> Los usuarios de *R* no son generalmente programadores, por esta razón muchas de las rutinas están enfocadas a los resultados y no a desarrollar un código claro y rápido</p>
 
-## Ejemplos a mostrar
+# Ejemplos 
+
+## 
+
+- Cáncer de mama. 
+
+- Descargar datos. 
+
+- DSS.
 
 ## Objetos y precedencias
 <p align="justify">
@@ -64,7 +75,7 @@ Adicionalmente *R* posee algunas variables de uso común:
 ***Ejemplos***:
 <div align="justify">
 En la consola escribir y luego dar _Enter_ a cada una de las siguientes líneas.
-  <p align="center">
+  
 ```{r, highlight=TRUE, collapse=TRUE, eval=FALSE}
       TRUE  # Este objeto es lógico
       10L # Se crea el diez como un entero
@@ -75,8 +86,6 @@ En la consola escribir y luego dar _Enter_ a cada una de las siguientes líneas.
       Inf / Inf # El resultado es un NaN
       NA # Representa un valor faltante
 ```
-  </p>
-Estas variables adquieren relevancia cuando se tienen grandes cantidades de datos.
 </div>
 
 
@@ -102,8 +111,8 @@ Los operadores son símbolos que indican que "operación" debe llevarse a cabo. 
  Igual a  | ==
  Menor que| <
  Mayor que| >
- Menor o igual | $\leq$
- Mayor o igual | $\geq$
+ Menor o igual | <=
+ Mayor o igual | >=
  Diferente | !=
 </p>
 
@@ -122,7 +131,7 @@ Los operadores son símbolos que indican que "operación" debe llevarse a cabo. 
 
 ***
 <p align="justify"> 
-Las ***Precedencias*** indican el orden en que se ejecutan las operaciones aritméticas y lógicas, [link](https://www.nytimes.com/2019/08/02/science/math-equation-pedmas-bemdas-bedmas.html?smtyp=cur&smid=tw-nytimes). A continuación algunas de ellas numeradas de la más importante 1 a la menos 10. 
+Las ***Precedencias*** indican el orden en que se ejecutan las operaciones aritméticas y lógicas, [link](https://www.nytimes.com/2019/08/02/science/math-equation-pedmas-bemdas-bedmas.html). A continuación algunas de ellas numeradas de la más importante 1 a la menos 10. 
 </p>
 
 <div style="float: left; width: 50%;">
@@ -160,17 +169,17 @@ Respuestas a los ejercicios de precedencias.
  
 Recuerde $\pi = 3.14$ y  $e = 2.71$ 
 
-1. `r uno `
+1) `r uno `
 
-2.  `r dos `
+2)  `r dos `
 
-3.  `r tres`
+3)  `r tres`
 
-4.  `r cuatro`
+4)  `r cuatro`
 
-5.1 `r cinco_a`
+5.1) `r cinco_a`
 
-5.2  `r cinco_b`
+5.2)  `r cinco_b`
 
 ## Funciones
 <div align="justify">
@@ -213,19 +222,79 @@ Con la función ***help()*** accedemos a la documentación. ***example()*** es u
 <div aling="justify">
 Algunas de las funciones que vamos a utilizar en esta sesión son:
 
-- colnames(): Obtener el nombre de las columnas. 
+- _install.package()_: Instalar paquetes.
 
-- read.csv(): Leer archivos .csv
+- _library()_: Cargamos los paquetes. 
 
-- apply(): Aplica una función sobre las filas o columnas de una matriz o data frame.
+- _read_csv()_: Leer archivos .csv
 
-- hist(): Nos permite realizar histogramas. 
+- _ggplot()_: Iniciamos el gráfico. 
 
-- curve(): La utilizaremos para gráficar funciones. 
+- _geom*()_: Agregamos la capa de geometría al ggplot().
 
-- plot(): Graficos de dispersión y otros. 
+- _*apply()_: Aplica una función sobre las filas o columnas de una matriz o data frame.
 
-- barplot(): Realizar gráficos de barras. 
+
+</div>
+
+## ggplot2
+
+<div align="justify">
+[**ggplot2**](https://ggplot2-book.org/index.html) tal vez uno de los paquetes más utilizados en **R** y  permite realizar graficos estadistícos de alta calidad. Este paquete esta escrito basado en [Grammar of Graphics](https://www.amazon.com/Grammar-Graphics-Statistics-Computing/dp/0387245448) donde se describe las reglas para crear un gráfico. 
+
+En _ggplot2_ se inicia con una capa base y luego iterativamente se agregan nuevas. La estructura para crear un plot es:
+</div>
+
+```{r, highlight=TRUE, results=FALSE, eval=FALSE}
+  ggplot(data = <datos>, aes(<atributos estéticos>)) + 
+      geom_<geometría>()
+```
+
+Las lineas anteriores son la base para crear _plots_ cada vez más elaborados.
+
+
+***
+
+**Actividad:** 
+
+* Instalar los siguientes paquetes:
+  + [_dplyr_](https://dplyr.tidyverse.org/): Manipular datos. 
+  + [_ggplot2_](https://ggplot2.tidyverse.org/): Realizar gráficos. 
+  + [_readr_](https://readr.tidyverse.org/): Leer datos. 
+  + [_lubridate_](https://lubridate.tidyverse.org/): Operar fechas.
+
+* Cargar los paquetes anteriores. 
+
+* Leer los datos _p_energia.csv_ y realizar un gráfico de lineas con ggplot2. 
+
+* ¿Qué puede ocasionar los cambios abruptos en el precio? [ENSO](http://www.bom.gov.au/climate/history/enso/)
+
+
+## Manipulación de datos en R.
+<div align="justify">
+Una de las ventajas que ofrece el programa es que cuenta con una variedad de herramientas para manipular y operar datos, una de las librerias más utilizadas para tal propósito es _dplyr_. Esta cuenta con 5 verbos para realizar diferentes operaciones los cuales son:
+
+- **select**: Permite seleccionar columas. 
+
+- **filter**: Con este verbo se pueden seleccionar las filas que cumplan con una condición. 
+
+- **arrange**: Se ordenan los datos de acuerdo a una característica. 
+
+- **mutate**: Permite realizar operaciones con las columnas para crear nuevas variables. 
+
+*** 
+- **summarise**: Con esta función se pueden crear medidas agregadas. 
+
+
+**Actividad**
+
+ * Calcular los retornos del precio de la energía y realizar un gráfico de lineas. 
+ 
+ * Descargar la serie de datos del dólar, *USD/COP*, de [investing](https://www.investing.com/) desde 1995 hasta 2022.
+ 
+ * Calcular el rendimiento del dolar. 
+ 
+ * Compararlo con el precio de la energía. 
 
 </div>
 
@@ -238,7 +307,7 @@ Al agrupar los objetos se pueden crear diferentes estructuras entre las que se d
 
 ```{r, highlight=TRUE, results=FALSE}
   x <- 100:110 # Se crea un vector con 11 elementos.
-  y <- c(2, 4, 5, 6) # y es un vector con los valors 2, 4, 5 y 6. 
+  y <- c(2, 4, 5, 6) # y es un vector con los valores 2, 4, 5 y 6. 
   z <- c(x, y) # z se crea con los valores de x e y. 
   texto = c("hola", "mundo") # Vector de caracteres. 
   a <- c(2, 2.4, "h") # ¿Qué hace R?
@@ -360,7 +429,7 @@ my_df[my_df$hijos >= 3, ] #Seleccionamos los que tengan más de tres hijos.
 ***
 
 <div align="justify">
-***Listas***: Las listas son un caso especial de vectores en el que los elementos no tienen que ser todos igulaes. Un elemento puede ser un complejo, otro un vector o incluso otra lista. Estas se crean con la función ***list()***.
+***Listas***: Las listas son un caso especial de vectores en el que los elementos no tienen que ser todos iguales. Un elemento puede ser un complejo, otro un vector o incluso otra lista. Estas se crean con la función ***list()***.
 
 ```{r}
 a <- list("hola", my_df, 1:5) # Cada elemento de la lista es diferente.
@@ -380,7 +449,7 @@ a[[3]][2:4]
 ## Creando funciones en *R*
 
 <div align="justify">
-En ocaciones ocurre que un conjunto de líneas se repiten en el código, en tal caso podemos encapsularlas para ejecutarlas cuando sea necesario. 
+En ocasiones ocurre que un conjunto de líneas se repiten en el código, en tal caso podemos encapsularas para ejecutarlas cuando sea necesario. 
 
 La sintaxis tiene la siguiente forma:
 
@@ -432,7 +501,7 @@ Para cada una de las viñetas realice una función.
 
 - Que reste dos números.
 - Que divida dos números. 
-- Que encuentre la hipótenusa de un triángulo rectángulo. 
+- Que encuentre la hipotenusa de un triángulo rectángulo. 
 - Que imprima si un número es primo o no. 
 - Que diga si un número es perfecto o no. 
 - Que dada un vector de valores permita estandarizarlo. 
@@ -440,22 +509,6 @@ Para cada una de las viñetas realice una función.
 - Que dada una secuencia de 1 a 100 devuelva un vector de caracateres con _par_ o _impar_ de acuerdo a los números de la secuencia.  
 </div>
 
-## Manipulación de datos en R.
-<div align="justify">
-Una de las ventajas que ofrece el programa es que cuenta con una variedad de herramientas para manipular y operar datos, una de las librerias más utilizadas para tal propósito es _dplyr_. Esta cuenta con 5 verbos para realizar diferentes operaciones los cuales son:
-
-- **select**: Permite seleccionar columas. 
-
-- **filter**: Con este verbo se pueden seleccionar las filas que cumplan con una condición. 
-
-- **arrange**: Se ordenan los datos de acuerdo a una característica. 
-
-- **mutate**: Permite realizar operaciones con las columnas para crear nuevas variables. 
-
-*** 
-- **summarise**: Con esta función se pueden crear medidas agregadas. 
-
-</div>
 
 ## Selección de portafolios. 
 <div align="justify">

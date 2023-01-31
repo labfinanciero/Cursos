@@ -1,0 +1,50 @@
+
+slides > slide.backdrop {
+  background: #E8EBF2;
+  border-bottom: 5px;
+  box-shadow: 1 0 1;
+}
+
+
+.title-slide hgroup h1 {
+  color: #000066;
+  font-size: 40px;
+}
+
+.title-slide hgroup h2 {
+  font-size: 28px;
+}
+
+
+h2 {
+  font-size: 40px;
+  color: #000066;
+}
+
+h3 {
+  font-size: 32px;
+  color: #000066;
+}
+slides > slide.dark {
+  background: #66b3ff !important;
+  border-bottom: 0;
+  box-shadow: 0 0 0;
+  color:blue;
+}
+
+.segue h2 {
+  color: white;
+}
+
+ol, ul {
+  
+  padding-bottom: 10px;
+  padding-left: 40px;
+  
+}
+
+slides > slide:not(.nobackground):after {
+  width: 75px;
+  height: 75px;
+  background-size: 75px 75px;
+}
